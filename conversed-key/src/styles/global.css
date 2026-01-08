@@ -1,0 +1,50 @@
+/* =========================
+   Global Reset
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   Root Variables (Design System)
+   ========================= */
+:root {
+  --primary-color: #0a1f44; /* Dark navy */
+  --secondary-color: #1f3c88; /* Accent blue */
+  --text-color: #333333;
+  --light-text: #ffffff;
+  --background-color: #f9fafc;
+
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========================
+   Base Styles
+   ========================= */
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* =========================
+   Common Elements
+   ========================= */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
