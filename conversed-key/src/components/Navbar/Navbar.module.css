@@ -1,0 +1,423 @@
+/* Navbar.module.css - Premium Enhanced Styles */
+
+/* CSS Variables for consistent theming */
+:root {
+  --primary-dark: #0a2540;
+  --primary-light: #1d3557;
+  --accent-color: #00b4d8;
+  --accent-glow: rgba(0, 180, 216, 0.3);
+  --light-text: #ffffff;
+  --light-text-muted: rgba(255, 255, 255, 0.85);
+  --dark-shadow: rgba(0, 0, 0, 0.15);
+  --light-shadow: rgba(255, 255, 255, 0.05);
+  --transition-speed: 0.3s;
+  --transition-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --border-radius: 12px;
+  --glass-bg: rgba(10, 37, 64, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Base Navbar Styles */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0.75rem 2rem;
+  background: var(--primary-dark);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all var(--transition-speed) var(--transition-timing);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+}
+
+.nav.scrolled {
+  padding: 0.5rem 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Logo Styles */
+.logoContainer {
+  position: relative;
+  z-index: 1001;
+}
+
+.logo {
+  color: var(--light-text);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0;
+  display: flex;
+  gap: 0.25rem;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logoText {
+  color: var(--light-text);
+}
+
+.logoAccent {
+  color: var(--accent-color);
+  position: relative;
+}
+
+.logoAccent::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+  bottom: -2px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .logoAccent::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.logoGlow {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: var(--accent-glow);
+  border-radius: 50%;
+  filter: blur(15px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.logoContainer:hover .logoGlow {
+  opacity: 0.7;
+}
+
+/* Desktop Menu Styles */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItem {
+  position: relative;
+}
+
+.menuLink {
+  color: var(--light-text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-speed) var(--transition-timing);
+}
+
+.menuLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 180, 216, 0.1), rgba(10, 37, 64, 0.1));
+  border-radius: var(--border-radius);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity var(--transition-speed) ease;
+}
+
+.menuLink:hover,
+.menuLink:focus {
+  color: var(--light-text);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.menuLink:hover::before,
+.menuLink:focus::before {
+  opacity: 1;
+}
+
+.menuLink.active {
+  color: var(--light-text);
+  background: rgba(0, 180, 216, 0.15);
+}
+
+.menuLink.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 3px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+.linkHoverEffect {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.menuLink:hover .linkHoverEffect {
+  width: 30px;
+}
+
+/* Mobile Menu Button */
+.mobileMenuButton {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: relative;
+}
+
+.hamburgerLine {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--light-text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburgerLine.line1 {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburgerLine.line2 {
+  opacity: 0;
+}
+
+.hamburgerLine.line3 {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Menu Styles */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: var(--primary-dark);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  transition: right 0.4s var(--transition-timing);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding-top: 90px;
+  border-left: 1px solid var(--glass-border);
+}
+
+.mobileMenu.open {
+  right: 0;
+}
+
+.mobileMenuList {
+  list-style: none;
+  padding: 2rem 0;
+  margin: 0;
+}
+
+.mobileMenuItem {
+  margin-bottom: 0.5rem;
+}
+
+.mobileMenuLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--light-text-muted);
+  text-decoration: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.mobileMenuLink:hover,
+.mobileMenuLink:focus {
+  color: var(--light-text);
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid var(--accent-color);
+  padding-left: 2.5rem;
+  outline: none;
+}
+
+.mobileMenuLink.active {
+  color: var(--light-text);
+  background: rgba(0, 180, 216, 0.15);
+  border-left: 3px solid var(--accent-color);
+}
+
+.mobileLinkIcon {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.mobileMenuLink:hover .mobileLinkIcon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Mobile Overlay */
+.mobileOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobileOverlay.overlayVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Navigation Indicator */
+.navIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-color), #48cae4);
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+.nav.scrolled .navIndicator {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .nav {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .nav.scrolled {
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+  
+  .mobileMenuButton {
+    display: flex;
+  }
+  
+  .nav {
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .nav.scrolled {
+    padding: 0.5rem 1.25rem;
+  }
+  
+  .logo {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 0.75rem 1rem;
+  }
+  
+  .nav.scrolled {
+    padding: 0.5rem 1rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .mobileMenu {
+    width: 250px;
+  }
+}
+
+/* Focus states for accessibility */
+.menuLink:focus-visible,
+.mobileMenuLink:focus-visible,
+.mobileMenuButton:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .nav,
+  .menuLink,
+  .mobileMenuLink,
+  .logo,
+  .mobileMenu,
+  .mobileOverlay {
+    transition: none;
+  }
+  
+  .linkHoverEffect,
+  .logoGlow,
+  .mobileLinkIcon {
+    display: none;
+  }
+}
