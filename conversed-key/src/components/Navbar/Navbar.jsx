@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
+import logo from '../../assets/01.png';
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,7 +48,9 @@ function Navbar() {
         {/* Brand / Logo with animation */}
         <div className={styles.brand}>
           <div className={styles.brandInner}>
-            <span className={styles.brandText}>Conversed Key</span>
+            <span className={styles.brandText}>
+              <img src={logo} alt="Conversed Key Logo" style={{ height: '60px', width: 'auto' }} />
+            </span>
             <span className={styles.brandAccent}></span>
           </div>
         </div>

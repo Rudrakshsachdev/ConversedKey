@@ -12,13 +12,14 @@ function Hero() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [particles, setParticles] = useState([]);
-  const [stats, setStats] = useState([
-    { value: 0, target: 500, label: "Clients Served", suffix: "+" },
-    { value: 0, target: 10000, label: "Talent Placed", suffix: "+" },
-    { value: 0, target: 95, label: "Satisfaction Rate", suffix: "%" },
-  ]);
 
-  // let backgroundImage = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80';
+  // Fixed stats without animation
+  const stats = [
+    { value: 500, label: "Clients Served", suffix: "+" },
+    { value: 10000, label: "Talent Placed", suffix: "+" },
+    { value: 95, label: "Satisfaction Rate", suffix: "%" },
+  ];
+
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, 100]);
   const springY = useSpring(y, { stiffness: 100, damping: 30 });
@@ -93,30 +94,6 @@ function Hero() {
     }, 50);
 
     return () => clearInterval(interval);
-  }, []);
-
-  // Stats counter animation
-  useEffect(() => {
-    const intervals = stats.map((stat, index) => {
-      const increment = stat.target / 100;
-      const interval = setInterval(() => {
-        setStats((prev) => {
-          const newStats = [...prev];
-          if (newStats[index].value < stat.target) {
-            newStats[index].value = Math.min(
-              newStats[index].value + increment,
-              stat.target
-            );
-          }
-          return newStats;
-        });
-      }, 20);
-
-      setTimeout(() => clearInterval(interval), 2000);
-      return interval;
-    });
-
-    return () => intervals.forEach(clearInterval);
   }, []);
 
   // Interactive glow effect
@@ -320,7 +297,7 @@ function Hero() {
                   delay: 1.5 + index * 0.1,
                 }}
               >
-                {Math.round(stat.value)}
+                {stat.value}
                 <span className={styles.statSuffix}>{stat.suffix}</span>
               </motion.div>
               <div className={styles.statLabel}>{stat.label}</div>
