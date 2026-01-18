@@ -4,7 +4,7 @@ import styles from "./Footer.module.css";
 
 function Footer() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  
+
   // Mouse move effect for interactive elements
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -21,7 +21,7 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <motion.footer 
+    <motion.footer
       className={styles.footer}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -43,14 +43,14 @@ function Footer() {
         {/* Main Footer Content */}
         <div className={styles.mainContent}>
           {/* Brand Section */}
-          <motion.div 
+          <motion.div
             className={styles.brandSection}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <motion.div 
+            <motion.div
               className={styles.logoContainer}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -61,8 +61,8 @@ function Footer() {
                 <p className={styles.companyType}>Private Limited</p>
               </div>
             </motion.div>
-            
-            <motion.p 
+
+            <motion.p
               className={styles.tagline}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -74,35 +74,47 @@ function Footer() {
             </motion.p>
 
             {/* Social Links */}
-            <motion.div 
+            <motion.div
               className={styles.socialLinks}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              {['linkedin', 'twitter', 'instagram', 'facebook'].map((platform, index) => (
+              {/*
+                { platform: 'linkedin', url: 'https://www.linkedin.com/in/conversed-key-private-limited-b8646a3a4/', icon: '💼' },
+                { platform: 'instagram', url: 'https://www.instagram.com/your_instagram_handle/', icon: '📸' }
+              */}
+              {[
+                {
+                  platform: "linkedin",
+                  url: "https://www.linkedin.com/in/conversed-key-private-limited-b8646a3a4/",
+                  icon: "💼",
+                },
+                {
+                  platform: "instagram",
+                  url: "https://www.instagram.com/conversedkeyprivatelimited?igsh=dXF6d2F6a21pZjB4",
+                  icon: "📸",
+                },
+              ].map((social, index) => (
                 <motion.a
-                  key={platform}
-                  href="#"
+                  key={social.platform}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={styles.socialLink}
                   whileHover={{ y: -5, scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 200, 
-                    delay: 0.4 + index * 0.1 
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    delay: 0.4 + index * 0.1,
                   }}
                 >
-                  <span className={styles.socialIcon}>
-                    {platform === 'linkedin' && '💼'}
-                    {platform === 'twitter' && '🐦'}
-                    {platform === 'instagram' && '📸'}
-                    {platform === 'facebook' && '📘'}
-                  </span>
+                  <span className={styles.socialIcon}>{social.icon}</span>
                   <div className={styles.socialGlow} />
                 </motion.a>
               ))}
@@ -111,7 +123,7 @@ function Footer() {
 
           {/* Quick Links */}
           <div className={styles.linksGrid}>
-            <motion.div 
+            <motion.div
               className={styles.linkColumn}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -119,7 +131,7 @@ function Footer() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h4 className={styles.columnTitle}>Company</h4>
-              {['About Us', 'Careers', 'Team', 'Press'].map((link, index) => (
+              {["About Us", "Careers", "Team", "Press"].map((link, index) => (
                 <motion.a
                   key={link}
                   href="#"
@@ -136,7 +148,7 @@ function Footer() {
               ))}
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className={styles.linkColumn}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -144,24 +156,26 @@ function Footer() {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <h4 className={styles.columnTitle}>Services</h4>
-              {['Staffing', 'Recruitment', 'BPO', 'Consulting'].map((link, index) => (
-                <motion.a
-                  key={link}
-                  href="#"
-                  className={styles.navLink}
-                  whileHover={{ x: 10 }}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
-                >
-                  <span className={styles.linkBullet}>›</span>
-                  {link}
-                </motion.a>
-              ))}
+              {["Staffing", "Recruitment", "BPO", "Consulting"].map(
+                (link, index) => (
+                  <motion.a
+                    key={link}
+                    href="#"
+                    className={styles.navLink}
+                    whileHover={{ x: 10 }}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+                  >
+                    <span className={styles.linkBullet}>›</span>
+                    {link}
+                  </motion.a>
+                )
+              )}
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className={styles.linkColumn}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -169,24 +183,26 @@ function Footer() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <h4 className={styles.columnTitle}>Resources</h4>
-              {['Blog', 'Case Studies', 'FAQs', 'Support'].map((link, index) => (
-                <motion.a
-                  key={link}
-                  href="#"
-                  className={styles.navLink}
-                  whileHover={{ x: 10 }}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
-                >
-                  <span className={styles.linkBullet}>›</span>
-                  {link}
-                </motion.a>
-              ))}
+              {["Blog", "Case Studies", "FAQs", "Support"].map(
+                (link, index) => (
+                  <motion.a
+                    key={link}
+                    href="#"
+                    className={styles.navLink}
+                    whileHover={{ x: 10 }}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+                  >
+                    <span className={styles.linkBullet}>›</span>
+                    {link}
+                  </motion.a>
+                )
+              )}
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className={styles.linkColumn}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -194,30 +210,34 @@ function Footer() {
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <h4 className={styles.columnTitle}>Contact</h4>
-              {['Contact Us', 'Sales', 'Support', 'Locations'].map((link, index) => (
-                <motion.a
-                  key={link}
-                  href="#"
-                  className={styles.navLink}
-                  whileHover={{ x: 10 }}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
-                >
-                  <span className={styles.linkBullet}>›</span>
-                  {link}
-                </motion.a>
-              ))}
+              {["Contact Us", "Sales", "Support", "Locations"].map(
+                (link, index) => (
+                  <motion.a
+                    key={link}
+                    href="#"
+                    className={styles.navLink}
+                    whileHover={{ x: 10 }}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+                  >
+                    <span className={styles.linkBullet}>›</span>
+                    {link}
+                  </motion.a>
+                )
+              )}
             </motion.div>
           </div>
         </div>
 
         {/* Newsletter */}
-        <motion.div 
+        <motion.div
           className={styles.newsletter}
           style={{
-            transform: `translate(${mousePosition.x * 0.3}px, ${mousePosition.y * 0.3}px)`,
+            transform: `translate(${mousePosition.x * 0.3}px, ${
+              mousePosition.y * 0.3
+            }px)`,
           }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -254,7 +274,7 @@ function Footer() {
       <div className={styles.divider} />
 
       {/* Bottom Bar */}
-      <motion.div 
+      <motion.div
         className={styles.bottomBar}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -265,9 +285,14 @@ function Footer() {
           <p className={styles.copyright}>
             © {currentYear} Conversed Key Private Limited. All rights reserved.
           </p>
-          
+
           <div className={styles.legalLinks}>
-            {['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'Disclaimer'].map((link) => (
+            {[
+              "Privacy Policy",
+              "Terms of Service",
+              "Cookie Policy",
+              "Disclaimer",
+            ].map((link) => (
               <a key={link} href="#" className={styles.legalLink}>
                 {link}
               </a>

@@ -173,7 +173,7 @@ function Hero() {
           whileHover={{ scale: 1.05 }}
         >
           <span className={styles.badgeIcon}>★</span>
-          <span className={styles.badgeText}>Trusted Since 2010</span>
+          <span className={styles.badgeText}>The Key to Unlocking Your Career!</span>
         </motion.div>
 
         {/* Main Heading with Split Animation */}
