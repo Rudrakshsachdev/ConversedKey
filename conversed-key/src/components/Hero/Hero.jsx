@@ -313,7 +313,10 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.6 }}
         >
-          <motion.button
+          <motion.a
+            href="https://wa.me/917667703866?text=Hello%20Conversed%20Key%20Team,%20I%20would%20like%20to%20get%20started%20with%20your%20services."
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.primaryBtn}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -331,7 +334,7 @@ function Hero() {
               </svg>
             </span>
             <span className={styles.btnRipple} />
-          </motion.button>
+          </motion.a>
 
           <motion.button
             className={styles.secondaryBtn}
