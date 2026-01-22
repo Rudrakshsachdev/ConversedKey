@@ -772,17 +772,19 @@ function Services() {
 
               {/* Interactive Card Footer */}
               <div className={styles.cardFooter}>
-                <motion.button 
+                <motion.a 
+                  href={`https://wa.me/917667703866?text=Hello%20Conversed%20Key%20Team,%20I%20would%20like%20to%20learn%20more%20about%20your%20${encodeURIComponent(service.title)}%20services.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={styles.actionButton}
                   whileHover={{ 
                     scale: 1.05,
                     boxShadow: `0 10px 20px ${service.color}40`
                   }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setActiveModal(service)}
                 >
                   Learn More
-                </motion.button>
+                </motion.a>
                 
                 <div className={styles.cardActions}>
                   <motion.button 
