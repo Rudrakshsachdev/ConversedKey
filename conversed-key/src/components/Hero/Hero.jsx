@@ -336,7 +336,10 @@ function Hero() {
             <span className={styles.btnRipple} />
           </motion.a>
 
-          <motion.button
+          <motion.a
+            href="https://www.instagram.com/reel/DTAbrYlkyXe/?igsh=MWtta2prc29jN3F3dA=="
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.secondaryBtn}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -354,7 +357,7 @@ function Hero() {
                 <path d="M10 8L16 12L10 16V8Z" fill="currentColor" />
               </svg>
             </span>
-          </motion.button>
+          </motion.a>
         </motion.div>
 
         {/* Scroll Indicator with Animation */}
