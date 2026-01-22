@@ -336,7 +336,7 @@ function Careers() {
               </motion.a>
               
               <motion.a
-                href="mailto:careers@conversedkey.com"
+                href="mailto:team@conversedkey.com"
                 className={styles.ctaSecondaryBtn}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

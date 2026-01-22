@@ -862,12 +862,14 @@ function Services() {
                     </div>
                   ))}
                 </div>
-                <button 
+                <a 
+                  href={`https://wa.me/917667703866?text=Hello%20Conversed%20Key%20Team,%20I%20would%20like%20to%20request%20a%20comparison%20of%20your%20${encodeURIComponent(service.title)}%20with%20other%20services.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={styles.compareButton}
-                  onClick={() => console.log(`Comparing ${service.title}`)}
                 >
                   Compare
-                </button>
+                </a>
               </motion.div>
             ))}
           </div>
@@ -910,13 +912,16 @@ function Services() {
               </motion.div>
             ))}
           </div>
-          <motion.button 
+          <motion.a 
+            href="https://wa.me/917667703866?text=Hello%20Conversed%20Key%20Team,%20I%20would%20like%20to%20get%20a%20service%20recommendation%20based%20on%20my%20business%20needs."
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.quizSubmit}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             Get Recommendation
-          </motion.button>
+          </motion.a>
         </motion.div>
 
         {/* Stats Counter */}

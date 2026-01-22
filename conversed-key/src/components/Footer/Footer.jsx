@@ -2,8 +2,11 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import styles from "./Footer.module.css";
 
+const whatsappNumber = '917667703866';
+
 function Footer() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [email, setEmail] = useState("");
 
   // Mouse move effect for interactive elements
   useEffect(() => {
@@ -17,6 +20,33 @@ function Footer() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const navbarHeight = 80; // Account for fixed navbar height
+      const targetPosition = targetElement.offsetTop - navbarHeight;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!email) {
+      alert("Please enter your email address.");
+      return;
+    }
+    
+    const whatsappMessage = `Hello Conversed Key Team, I would like to subscribe to your updates and career opportunities. My email address is: ${email}`;
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+    setEmail("");
+  };
 
   const currentYear = new Date().getFullYear();
 
@@ -131,11 +161,18 @@ function Footer() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h4 className={styles.columnTitle}>Company</h4>
-              {["About Us", "Careers", "Team", "Press"].map((link, index) => (
+              {[
+                { label: "Home", href: "#home" },
+                { label: "About Us", href: "#about" },
+                { label: "Services", href: "#services" },
+                { label: "Careers", href: "#careers" },
+                { label: "Contact Us", href: "#contact" },
+              ].map((link, index) => (
                 <motion.a
-                  key={link}
-                  href="#"
+                  key={link.label}
+                  href={link.href}
                   className={styles.navLink}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   whileHover={{ x: 10 }}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -143,7 +180,7 @@ function Footer() {
                   transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
                 >
                   <span className={styles.linkBullet}>›</span>
-                  {link}
+                  {link.label}
                 </motion.a>
               ))}
             </motion.div>
@@ -156,23 +193,27 @@ function Footer() {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <h4 className={styles.columnTitle}>Services</h4>
-              {["Staffing", "Recruitment", "BPO", "Consulting"].map(
-                (link, index) => (
-                  <motion.a
-                    key={link}
-                    href="#"
-                    className={styles.navLink}
-                    whileHover={{ x: 10 }}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
-                  >
-                    <span className={styles.linkBullet}>›</span>
-                    {link}
-                  </motion.a>
-                )
-              )}
+              {[
+                { label: "Staffing", href: "#services" },
+                { label: "Recruitment", href: "#services" },
+                { label: "BPO", href: "#services" },
+                { label: "Consulting", href: "#services" },
+              ].map((link, index) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  className={styles.navLink}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  whileHover={{ x: 10 }}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+                >
+                  <span className={styles.linkBullet}>›</span>
+                  {link.label}
+                </motion.a>
+              ))}
             </motion.div>
 
             <motion.div
@@ -183,23 +224,25 @@ function Footer() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <h4 className={styles.columnTitle}>Resources</h4>
-              {["Blog", "Case Studies", "FAQs", "Support"].map(
-                (link, index) => (
-                  <motion.a
-                    key={link}
-                    href="#"
-                    className={styles.navLink}
-                    whileHover={{ x: 10 }}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
-                  >
-                    <span className={styles.linkBullet}>›</span>
-                    {link}
-                  </motion.a>
-                )
-              )}
+              {[
+                { label: "FAQs", href: "#contact" },
+                { label: "Support", href: "#contact" },
+              ].map((link, index) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  className={styles.navLink}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  whileHover={{ x: 10 }}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+                >
+                  <span className={styles.linkBullet}>›</span>
+                  {link.label}
+                </motion.a>
+              ))}
             </motion.div>
 
             <motion.div
@@ -210,23 +253,27 @@ function Footer() {
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <h4 className={styles.columnTitle}>Contact</h4>
-              {["Contact Us", "Sales", "Support", "Locations"].map(
-                (link, index) => (
-                  <motion.a
-                    key={link}
-                    href="#"
-                    className={styles.navLink}
-                    whileHover={{ x: 10 }}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
-                  >
-                    <span className={styles.linkBullet}>›</span>
-                    {link}
-                  </motion.a>
-                )
-              )}
+              {[
+                { label: "Contact Us", href: "#contact" },
+                { label: "Sales", href: "#contact" },
+                { label: "Support", href: "#contact" },
+                { label: "Locations", href: "#contact" },
+              ].map((link, index) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  className={styles.navLink}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  whileHover={{ x: 10 }}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+                >
+                  <span className={styles.linkBullet}>›</span>
+                  {link.label}
+                </motion.a>
+              ))}
             </motion.div>
           </div>
         </div>
@@ -254,11 +301,14 @@ function Footer() {
                 type="email"
                 placeholder="Enter your email"
                 className={styles.newsletterInput}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <motion.button
                 className={styles.newsletterButton}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={handleSubscribe}
               >
                 Subscribe
                 <span className={styles.buttonArrow}>→</span>
@@ -286,7 +336,7 @@ function Footer() {
             © {currentYear} Conversed Key Private Limited. All rights reserved.
           </p>
 
-          <div className={styles.legalLinks}>
+          {/* <div className={styles.legalLinks}>
             {[
               "Privacy Policy",
               "Terms of Service",
@@ -297,7 +347,7 @@ function Footer() {
                 {link}
               </a>
             ))}
-          </div>
+          </div> */}
         </div>
       </motion.div>
     </motion.footer>

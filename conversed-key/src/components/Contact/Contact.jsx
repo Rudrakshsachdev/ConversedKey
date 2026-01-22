@@ -2,9 +2,9 @@ import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import styles from './Contact.module.css';
 
-const whatsappNumber = '919876543210'; // replace with company WhatsApp number
-const companyEmail = 'info@conversedkey.com'; // replace with official email
-const companyPhone = '+91 98765 43210'; // replace with official phone
+const whatsappNumber = '917667703866'; // replace with company WhatsApp number
+const companyEmail = 'team@conversedkey.com'; // replace with official email
+const companyPhone = '+91 7667703866'; // replace with official phone
 
 function Contact() {
   const containerRef = useRef(null);
@@ -43,32 +43,46 @@ function Contact() {
   ];
 
   const contactInfo = [
-    { icon: '📍', title: 'Visit Our Office', details: ['123 Business District', 'Mumbai, Maharashtra 400001', 'India'], link: 'https://maps.google.com' },
+    { icon: '📍', title: 'Visit Our Office', details: ['Bhadra, Rajasthan 335501', 'India'], link: 'https://maps.google.com' },
     { icon: '📞', title: 'Call Us', details: [companyPhone, 'Mon - Fri: 9:00 AM - 6:00 PM'], link: `tel:${companyPhone}` },
     { icon: '✉️', title: 'Email Us', details: [companyEmail, 'Response within 24 hours'], link: `mailto:${companyEmail}` },
   ];
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-        category: 'general'
-      });
-      
-      // Reset status after 5 seconds
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1500);
+    // Get the selected category label
+    const categoryLabel = contactCategories.find(c => c.id === formData.category)?.label || formData.category;
+    
+    // Build WhatsApp message with form data
+    const whatsappMessage = `Hello Conversed Key Team,
+
+*New Contact Form Submission*
+
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Phone:* ${formData.phone || 'Not provided'}
+*Category:* ${categoryLabel}
+*Subject:* ${formData.subject}
+
+*Message:*
+${formData.message}`;
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // Open WhatsApp with the pre-filled message
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+    
+    // Reset form after redirect
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: '',
+      category: 'general'
+    });
   };
 
   const handleChange = (e) => {
