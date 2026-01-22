@@ -111,6 +111,7 @@ function Careers() {
 
   return (
     <motion.section 
+      id="careers"
       className={styles.careers}
       ref={containerRef}
       initial={{ opacity: 0 }}

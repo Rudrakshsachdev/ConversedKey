@@ -28,15 +28,29 @@ function Navbar() {
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Home', href: '#' },
-    { id: 'about', label: 'About', href: '#' },
-    { id: 'careers', label: 'Careers', href: '#' },
-    { id: 'contact', label: 'Contact', href: '#' },
+    { id: 'home', label: 'Home', href: '#home' },
+    { id: 'about', label: 'About', href: '#about' },
+    { id: 'services', label: 'Services', href: '#services' },
+    { id: 'careers', label: 'Careers', href: '#careers' },
+    { id: 'contact', label: 'Contact', href: '#contact' },
   ];
 
-  const handleNavClick = (label) => {
-    setActiveLink(label);
+  const handleNavClick = (e, item) => {
+    e.preventDefault();
+    setActiveLink(item.label);
     setMobileMenuOpen(false);
+    
+    // Smooth scroll to section
+    const targetId = item.href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const navbarHeight = 80; // Account for fixed navbar height
+      const targetPosition = targetElement.offsetTop - navbarHeight;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -63,7 +77,7 @@ function Navbar() {
                 key={item.id}
                 href={item.href}
                 className={`${styles.navLink} ${activeLink === item.label ? styles.active : ''}`}
-                onClick={() => handleNavClick(item.label)}
+                onClick={(e) => handleNavClick(e, item)}
                 aria-current={activeLink === item.label ? 'page' : undefined}
               >
                 <span className={styles.navText}>{item.label}</span>
@@ -103,7 +117,7 @@ function Navbar() {
                 key={item.id}
                 href={item.href}
                 className={`${styles.mobileNavLink} ${activeLink === item.label ? styles.active : ''}`}
-                onClick={() => handleNavClick(item.label)}
+                onClick={(e) => handleNavClick(e, item)}
                 aria-current={activeLink === item.label ? 'page' : undefined}
               >
                 <span className={styles.mobileNavText}>{item.label}</span>

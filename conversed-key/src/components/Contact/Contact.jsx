@@ -78,6 +78,7 @@ function Contact() {
 
   return (
     <motion.section 
+      id="contact"
       className={styles.contact}
       ref={containerRef}
       initial={{ opacity: 0 }}

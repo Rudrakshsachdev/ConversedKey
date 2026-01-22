@@ -543,6 +543,7 @@ function Services() {
 
   return (
     <section 
+      id="services"
       className={styles.services}
       ref={containerRef}
       onMouseLeave={() => setHoveredCard(null)}

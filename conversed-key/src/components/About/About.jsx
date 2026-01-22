@@ -51,6 +51,7 @@ function About() {
 
   return (
     <motion.section 
+      id="about"
       className={styles.about} 
       ref={containerRef}
       initial={{ opacity: 0 }}

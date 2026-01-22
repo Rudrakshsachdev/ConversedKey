@@ -110,6 +110,7 @@ function Hero() {
 
   return (
     <motion.section
+      id="home"
       className={styles.hero}
       ref={containerRef}
       style={{ y: springY }} // Remove opacity from here
