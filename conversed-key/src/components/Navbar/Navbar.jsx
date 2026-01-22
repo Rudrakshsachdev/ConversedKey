@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import logo from '../../assets/01.png';
 
+const whatsappNumber = '917667703866';
+
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -88,10 +90,16 @@ function Navbar() {
         </nav>
 
         {/* CTA Button - Desktop */}
-        <button className={styles.ctaButton} aria-label="Get started">
+        <a
+          href={`https://wa.me/${whatsappNumber}?text=Hello%20Conversed%20Key%20Team,%20I%20would%20like%20to%20get%20started%20with%20your%20services.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.ctaButton}
+          aria-label="Get started"
+        >
           <span className={styles.ctaText}>Get Started</span>
           <span className={styles.ctaIcon}>→</span>
-        </button>
+        </a>
 
         {/* Mobile Menu Button */}
         <button
@@ -125,10 +133,16 @@ function Navbar() {
               </a>
             ))}
           </div>
-          <button className={styles.mobileCtaButton} aria-label="Get started on mobile">
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=Hello%20Conversed%20Key%20Team,%20I%20would%20like%20to%20get%20started%20with%20your%20services.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.mobileCtaButton}
+            aria-label="Get started on mobile"
+          >
             Get Started
             <span className={styles.mobileCtaIcon}>→</span>
-          </button>
+          </a>
         </nav>
       </div>
     </header>
