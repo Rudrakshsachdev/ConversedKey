@@ -43,7 +43,7 @@ function Contact() {
   ];
 
   const contactInfo = [
-    { icon: '📍', title: 'Visit Our Office', details: ['Bhadra, Rajasthan 335501', 'India'], link: 'https://maps.google.com' },
+    { icon: '📍', title: 'Visit Our Office', details: ['704, 7th floor,  Sector 16', 'Palm Court, Gurugram, Haryana 122007', 'India'], link: 'https://maps.google.com' },
     { icon: '📞', title: 'Call Us', details: [companyPhone, 'Mon - Fri: 9:00 AM - 6:00 PM'], link: `tel:${companyPhone}` },
     { icon: '✉️', title: 'Email Us', details: [companyEmail, 'Response within 24 hours'], link: `mailto:${companyEmail}` },
   ];
