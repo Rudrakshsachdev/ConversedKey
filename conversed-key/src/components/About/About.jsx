@@ -126,10 +126,8 @@ function About() {
               <h3 className={styles.cardTitle}>Company Overview</h3>
             </div>
             <p className={styles.cardText}>
-              <span className={styles.highlight}>Conversed Key Private Limited</span> is a premier staffing, 
-              recruitment, and BPO outsourcing company dedicated to bridging the gap between 
-              forward-thinking organizations and exceptional talent. We specialize in delivering 
-              <span className={styles.highlight}> scalable, efficient, and innovative</span> human resource solutions that drive business growth.
+              <span className={styles.highlight}>Conversed Key Private Limited</span> is a professional services company delivering integrated solutions across staffing and recruitment, training, outsourcing, and statutory compliance. We support organizations by providing skilled talent, efficient workforce solutions, and reliable operational support.
+               Our services includes <span className={styles.highlight}>staffing and recruitment, communication skills and career development training, BPO outsourcing, and GST & Income Tax filing</span>, delivered with a focus on quality, accuracy, and long-term value.
             </p>
             <div className={styles.statsRow}>
               {[
@@ -201,11 +199,7 @@ function About() {
                     <h3 className={styles.visionTitle}>Our Vision</h3>
                   </div>
                   <p className={styles.visionText}>
-                    To emerge as the world's most trusted workforce solutions partner, 
-                    recognized for our unwavering commitment to 
-                    <span className={styles.highlight}> integrity, innovation, and excellence</span>. 
-                    We envision a future where every organization has access to exceptional 
-                    talent and every professional finds meaningful opportunities for growth.
+                    To become a trusted, end-to-end solutions partner that empowers individuals to build successful careers and enables organizations to grow through skilled talent, effective training, and reliable business support services.
                   </p>
                   <div className={styles.visionGoals}>
                     {[
@@ -228,11 +222,9 @@ function About() {
                     <h3 className={styles.missionTitle}>Our Mission</h3>
                   </div>
                   <p className={styles.missionText}>
-                    To empower organizations worldwide by providing 
-                    <span className={styles.highlight}> strategic workforce solutions</span> that 
-                    drive business success while enabling individuals to unlock their full 
-                    potential through expert guidance, continuous support, and meaningful 
-                    career opportunities.
+                    To connect the right talent with the right opportunities through ethical and efficient staffing solutions.
+
+To enhance employability and professional excellence through communication skills training and <span className={styles.highlight}>career-building programs.</span> To support businesses with <span   className={styles.highlight}>scalable BPO outsourcing and accurate GST & Income Tax compliance services.</span> To deliver value-driven solutions with a focus on <span className={styles.highlight}> quality, integrity, and long-term partnerships.</span> 
                   </p>
                   <div className={styles.missionPillars}>
                     <div className={styles.pillar}>
@@ -283,16 +275,11 @@ function About() {
             <blockquote className={styles.directorQuote}>
               <div className={styles.quoteMark}>"</div>
               <p className={styles.quoteText}>
-                At Conversed Key Private Limited, we believe that people are the 
-                <span className={styles.highlight}> foundation of every successful organization</span>. 
-                Our commitment is to create lasting partnerships by delivering workforce 
-                solutions that are not only efficient but also ethical and growth-oriented.
+                At Conversed Key Pvt. Ltd., we are building more than a services company—we are building pathways to growth. 
+                <span className={styles.highlight}> Our goal is simple: help businesses scale smarter and help professionals move forward with confidence.</span> We operate at the intersection of <span className={styles.highlight}>talent, skills, operations, and compliance</span>, offering practical solutions that are <span className={styles.highlight}>fast, flexible, and results-driven</span>. Whether it’s connecting the right talent, upgrading <span className={styles.highlight}>communication skills,</span> <span className={styles.highlight}>streamlining processes,</span> or ensuring <span className={styles.highlight}>regulatory accuracy,</span> we focus on impact that matters.
               </p>
               <p className={styles.quoteText}>
-                We remain dedicated to excellence, transparency, and continuous improvement 
-                in everything we do. Every placement we make, every partnership we build, 
-                and every solution we deliver is guided by our core belief in unlocking 
-                human potential.
+                We are driven by innovation, collaboration, and a belief that the right support can change outcomes. As we grow, our commitment remains the same—to keep unlocking opportunities and creating value at every step.
               </p>
               <footer className={styles.quoteFooter}>
                 <div className={styles.quoteSignature}>

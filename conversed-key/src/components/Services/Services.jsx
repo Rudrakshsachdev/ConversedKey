@@ -473,6 +473,57 @@ function Services() {
         pricing: "Per employee",
         requirements: "Employee data"
       }
+    },
+    {
+      id: 7,
+      title: "Career Building programs",
+      description: "Comprehensive guidance and mentorship programs designed to help individuals build successful career paths and achieve professional goals.",
+      icon: "🚀",
+      gradient: "linear-gradient(135deg, #4361ee, #4cc9f0)",
+      features: ["Career Roadmap", "Mentorship", "Interview Prep", "Resume Building"],
+      category: "consulting",
+      stats: { success: "95%", students: "1K+", rating: "4.9/5" },
+      color: "#4361ee",
+      tags: ["growth", "mentorship", "success"],
+      details: {
+        timeline: "Custom duration",
+        pricing: "Program based",
+        requirements: "Career assessment"
+      }
+    },
+    {
+      id: 8,
+      title: "Communication skills training",
+      description: "Specialized training to enhance professional communication, public speaking, and interpersonal skills for business success.",
+      icon: "🗣️",
+      gradient: "linear-gradient(135deg, #f72585, #4cc9f0)",
+      features: ["Public Speaking", "Soft Skills", "Business Writing", "Group Discussions"],
+      category: "staffing",
+      stats: { confidence: "90%+", sessions: "500+", trainers: "20+" },
+      color: "#f72585",
+      tags: ["articulate", "confident", "skilled"],
+      details: {
+        timeline: "4-8 weeks",
+        pricing: "Batch pricing",
+        requirements: "Basic fluency"
+      }
+    },
+    {
+      id: 9,
+      title: "GST & Income Tax services",
+      description: "Expert tax consultation and GST compliance services to ensure smooth financial operations for businesses and individuals.",
+      icon: "📝",
+      gradient: "linear-gradient(135deg, #3a0ca3, #4361ee)",
+      features: ["GST Filing", "ITR Filing", "Tax Planning", "Compliance Audit"],
+      category: "consulting",
+      stats: { accuracy: "100%", filings: "5K+", savings: "Maximized" },
+      color: "#3a0ca3",
+      tags: ["legal", "compliant", "precise"],
+      details: {
+        timeline: "Monthly/Annual",
+        pricing: "Service based",
+        requirements: "Financial documents"
+      }
     }
   ];
 
